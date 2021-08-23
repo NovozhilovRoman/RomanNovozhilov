@@ -2,6 +2,10 @@
 <suite name = "AllTestSuite">
     <test name = "AllTestName">
         <groups>
+            <define name = "AllTest">
+            <include name="SubAndAdd"/>
+            <include name="MultAndDiv"/>
+            </define>
             <run>
                 <include name="AllTest"/>
             </run>

@@ -93,18 +93,6 @@
                 <testng.suite.file>${testng.configs.path}/AllTest.xml</testng.suite.file>
             </properties>
         </profile>
-        <profile>
-            <id>Selenium-lesson1-flatTaxTests</id>
-            <properties>
-                <testng.suite.file>${testng.configs.path}/lesson1.utils.flatTaxTests.xml</testng.suite.file>
-            </properties>
-        </profile>
-        <profile>
-            <id>Selenium-lesson1-progressiveTaxTests</id>
-            <properties>
-                <testng.suite.file>${testng.configs.path}/lesson1.utils.progressiveTaxTests.xml</testng.suite.file>
-            </properties>
-        </profile>
     </profiles>
 
     <dependencies>
