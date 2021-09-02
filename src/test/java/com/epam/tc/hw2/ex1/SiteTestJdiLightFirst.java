@@ -8,10 +8,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-public class ExerciseOneTest extends MainTest {
+public class SiteTestJdiLightFirst extends MainTest {
 
     @Test
-    public void TestExerciseOne() {
+    public void testExerciseOne() {
         SoftAssertions softAssertions = new SoftAssertions();
 
         // 1 Open test site by URL

@@ -23,6 +23,8 @@
         <assertj-core.version>3.20.2</assertj-core.version>
         <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
 
+        <webdrivermanager.version>4.4.3</webdrivermanager.version>
+        <selenium-java.version>3.141.5</selenium-java.version>
     </properties>
 
     <build>
@@ -129,13 +131,13 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.141.5</version>
+            <version>${selenium-java.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>4.4.3</version>
+            <version>${webdrivermanager.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>

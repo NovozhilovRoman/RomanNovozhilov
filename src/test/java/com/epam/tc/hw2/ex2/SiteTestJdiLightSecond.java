@@ -6,9 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-public class ExerciseTwoTest extends MainTest {
+public class SiteTestJdiLightSecond extends MainTest {
     @Test
-    public void TestExerciseTwo() {
+    public void testExerciseTwo() {
         SoftAssertions softAssertions = new SoftAssertions();
 
         // 1 Open test site by URL
@@ -35,7 +35,7 @@ public class ExerciseTwoTest extends MainTest {
                 .as("Username is wrong")
                 .isEqualTo("ROMAN IOVLEV");
 
-        // 5 Open through the header menu Service -> Different Elements Page
+        // 5 Open through the header menu Service
         WebElement element = webDriver.findElement(By
             .xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']//a[@class='dropdown-toggle']"));
             element.click();
