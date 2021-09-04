@@ -23,6 +23,8 @@
         <assertj-core.version>3.20.2</assertj-core.version>
         <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
 
+        <webdrivermanager.version>4.4.3</webdrivermanager.version>
+        <selenium-java.version>3.141.5</selenium-java.version>
     </properties>
 
     <build>
@@ -93,6 +95,12 @@
                 <testng.suite.file>${testng.configs.path}/AllTest.xml</testng.suite.file>
             </properties>
         </profile>
+        <profile>
+            <id>HW2</id>
+            <properties>
+                <testng.suite.file>${testng.configs.path}/TestEx1Ex2.xml</testng.suite.file>
+            </properties>
+        </profile>
     </profiles>
 
     <dependencies>
@@ -107,10 +115,7 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>${logback-classic.version}</version>
-
         </dependency>
-
-
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -121,6 +126,18 @@
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>${assertj-core.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium-java.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
