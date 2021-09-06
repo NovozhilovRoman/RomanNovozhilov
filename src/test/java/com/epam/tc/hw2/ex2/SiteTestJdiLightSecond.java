@@ -38,7 +38,7 @@ public class SiteTestJdiLightSecond extends MainTest {
         // 5 Open through the header menu Service
         WebElement element = webDriver.findElement(By
             .xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']//a[@class='dropdown-toggle']"));
-            element.click();
+        element.click();
         element = webDriver.findElement(By.xpath("//a[@href='different-elements.html']"));
         element.click();
 
@@ -53,9 +53,10 @@ public class SiteTestJdiLightSecond extends MainTest {
         WebElement radioSelen = webDriver.findElement(By.xpath("//label[text()[contains(.,'Selen')]]/input"));
         radioSelen.click();
 
-       // 8 Select in dropdown
-       WebElement dropdownYellow = webDriver.findElement(By.xpath("//select[@class='uui-form-element']/option[text()='Yellow']"));
-       dropdownYellow.click();
+        // 8 Select in dropdown
+        WebElement dropdownYellow = webDriver.findElement(By
+                .xpath("//select[@class='uui-form-element']/option[text()='Yellow']"));
+        dropdownYellow.click();
 
         /*
          Assert that
