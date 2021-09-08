@@ -21,14 +21,14 @@
         <logback-classic.version>1.2.5</logback-classic.version>
         <testng.version>7.4.0</testng.version>
         <assertj-core.version>3.20.2</assertj-core.version>
-
-
         <webdrivermanager.version>4.4.3</webdrivermanager.version>
         <selenium-java.version>3.141.5</selenium-java.version>
-        <selenium-support.version>3.141.5</selenium-support.version>
+
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
-        <selenium-api.version>3.141.5</selenium-api.version>
+
         <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
+        <selenium-api.version>3.141.5</selenium-api.version>
+        <selenium-support.version>3.141.5</selenium-support.version>
     </properties>
 
     <build>
@@ -46,7 +46,7 @@
                 </dependencies>
                 <configuration>
                     <configLocation>
-                        https://raw.githubusercontent.com/DmitryKhodakovsky/epam-training-center-code-checkers-configurations/main/checkstyle/checkstyle.xml
+                      https://raw.githubusercontent.com/DmitryKhodakovsky/epam-training-center-code-checkers-configurations/main/checkstyle/checkstyle.xml
                     </configLocation>
                     <encoding>${project.build.sourceEncoding}</encoding>
                     <includeTestSourceDirectory>true</includeTestSourceDirectory>
@@ -87,7 +87,7 @@
         <profile>
             <id>Subtraction_And_Addition</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <testng.suite.file>${testng.configs.path}/defaultSecond.SubtractionAndAddition.xml</testng.suite.file>
@@ -153,33 +153,21 @@
         </dependency>
         <dependency>
             <groupId>calculator</groupId>
-            <artifactId>calculator</artifactId>
+            <artifactId>calculatorapp</artifactId>
             <scope>system</scope>
             <version>1.0</version>
             <systemPath>${project.basedir}/src/main/resources/calculator-1.0.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-support</artifactId>
-            <version>${selenium-support.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-api</artifactId>
             <version>${selenium-api.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-support</artifactId>
-            <version>3.141.5</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-api</artifactId>
-            <version>3.141.5</version>
+            <artifactId>selenium-support</artifactId>
+            <version>${selenium-support.version}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
