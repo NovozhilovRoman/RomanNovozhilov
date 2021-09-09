@@ -4,8 +4,8 @@ import com.epam.tc.hw3.MainTest;
 import java.util.List;
 import org.testng.annotations.Test;
 
-public class SiteTestJdiLightSecond extends MainTest {
-    @Test (groups = "Ex1Ex2")
+public class TestDifferentElements extends MainTest {
+
     public void testExerciseTwo() {
         //Assert Browser title
         homePageTestSteps.assertBrowserTitle("Home Page");

@@ -3,9 +3,8 @@ package com.epam.tc.hw3.ex1;
 import com.epam.tc.hw3.MainTest;
 import org.testng.annotations.Test;
 
-public class SiteTestJdiLightFirst extends MainTest {
+public class TestHomePage extends MainTest {
 
-    @Test (groups = "Ex1Ex2")
     public void testExerciseOne() {
 
         //Assert Browser title
