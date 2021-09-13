@@ -5,7 +5,7 @@ import java.util.List;
 import org.testng.annotations.Test;
 
 public class TestDifferentElements extends MainTest {
-
+    @Test
     public void testExerciseTwo() {
         //Assert Browser title
         homePageTestSteps.assertBrowserTitle("Home Page");
