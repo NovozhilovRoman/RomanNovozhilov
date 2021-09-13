@@ -4,6 +4,7 @@ import com.epam.tc.hw3.MainTest;
 import org.testng.annotations.Test;
 
 public class TestHomePage extends MainTest {
+
     @Test
     public void testExerciseOne() {
 

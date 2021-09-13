@@ -15,7 +15,6 @@
 
         <testng.configs.path>${project.build.testOutputDirectory}/testng</testng.configs.path>
         <testng.suite.file>${testng.configs.path}/lesson1.empty.suite.xml</testng.suite.file>
-
         <checkstyle.version>8.42</checkstyle.version>
         <lombok.version>1.18.20</lombok.version>
         <logback-classic.version>1.2.5</logback-classic.version>
@@ -23,14 +22,11 @@
         <assertj-core.version>3.20.2</assertj-core.version>
         <webdrivermanager.version>4.4.3</webdrivermanager.version>
         <selenium-java.version>3.141.5</selenium-java.version>
-
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
-
         <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
         <selenium-api.version>3.141.5</selenium-api.version>
         <selenium-support.version>3.141.5</selenium-support.version>
     </properties>
-
     <build>
         <plugins>
             <plugin>
@@ -76,7 +72,6 @@
             </plugin>
         </plugins>
     </build>
-
     <profiles>
         <profile>
             <id>Multiplication_And_Division</id>
@@ -111,11 +106,8 @@
                 <testng.suite.file>${testng.configs.path}/HW3Ex1Ex2Test.xml</testng.suite.file>
             </properties>
         </profile>
-
     </profiles>
-
     <dependencies>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
