@@ -26,6 +26,12 @@
         <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
         <selenium-api.version>3.141.5</selenium-api.version>
         <selenium-support.version>3.141.5</selenium-support.version>
+
+
+        <allure-maven.version>2.10.0</allure-maven.version>
+        <allure-testng.version>2.13.2</allure-testng.version>
+
+        <aspectjweaver.version>1.9.7</aspectjweaver.version>
     </properties>
     <build>
         <plugins>
@@ -65,45 +71,65 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
+                    <argLine>
+                        --illegal-access=permit
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver.version}/aspectjweaver-${aspectjweaver.version}.jar"
+                    </argLine>
                     <suiteXmlFiles>
-                        <suiteXmlFile>${testng.suite.file}</suiteXmlFile>
+                        <suiteXmlFile>${testng.configs.path}/HW4Ex1Ex2Test.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectjweaver.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
     <profiles>
         <profile>
             <id>Multiplication_And_Division</id>
+            <activation><activeByDefault>false</activeByDefault></activation>
             <properties>
                 <testng.suite.file>${testng.configs.path}/firstTest.MultiplicationAndDivision.xml</testng.suite.file>
             </properties>
         </profile>
         <profile>
             <id>Subtraction_And_Addition</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
+            <activation><activeByDefault>false</activeByDefault></activation>
             <properties>
                 <testng.suite.file>${testng.configs.path}/defaultSecond.SubtractionAndAddition.xml</testng.suite.file>
             </properties>
         </profile>
         <profile>
             <id>All_Test</id>
+            <activation><activeByDefault>false</activeByDefault></activation>
             <properties>
                 <testng.suite.file>${testng.configs.path}/AllTest.xml</testng.suite.file>
             </properties>
         </profile>
         <profile>
             <id>HW2</id>
+            <activation><activeByDefault>false</activeByDefault></activation>
             <properties>
                 <testng.suite.file>${testng.configs.path}/TestEx1Ex2.xml</testng.suite.file>
             </properties>
         </profile>
         <profile>
             <id>HW3</id>
+            <activation><activeByDefault>false</activeByDefault></activation>
             <properties>
                 <testng.suite.file>${testng.configs.path}/HW3Ex1Ex2Test.xml</testng.suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>HW4</id>
+            <activation><activeByDefault>true</activeByDefault></activation>
+            <properties>
+                <testng.suite.file>${testng.configs.path}/HW4Ex1Ex2Test.xml</testng.suite.file>
             </properties>
         </profile>
     </profiles>
@@ -162,5 +188,25 @@
             <version>${selenium-support.version}</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure-testng.version}</version>
+        </dependency>
     </dependencies>
+
+    <reporting>
+        <excludeDefaults>true</excludeDefaults>
+        <plugins>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure-maven.version}</version>
+                <configuration>
+                    <reportVersion>2.13.2</reportVersion>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
+
 </project>
