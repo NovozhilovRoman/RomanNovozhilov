@@ -34,15 +34,15 @@ public class SiteTestJdiLightFirst extends MainTest {
         buttonEnter.click();
 
         // 4 Assert Username is loggined
-               softAssertions.assertThat(webDriver.findElement(By.id("user-name")).getText())
+        softAssertions.assertThat(webDriver.findElement(By.id("user-name")).getText())
                 .as("Username is wrong")
                 .isEqualTo("ROMAN IOVLEV");
 
         // 5 Assert that there are 4 items on the header section are displayed and they have proper texts
         List<WebElement> headerElements = webDriver.findElements(By.xpath("//ul[contains(@class, 'm-l8')]/li"));
 
-               softAssertions.assertThat(headerElements.size())
-                .as("Header items number is incorrect")
+        softAssertions.assertThat(headerElements.size())
+                .as("Header items number is wrong")
                 .isEqualTo(4);
 
         List<String> expectedHeaderElements = Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
@@ -52,18 +52,19 @@ public class SiteTestJdiLightFirst extends MainTest {
         }
         for (int i = 0; i < headerElements.size(); i++) {
             softAssertions.assertThat(headerElements.get(i).getText())
-                    .as("Header item text is incorrect")
+                    .as("Header item text is wrong")
                     .isEqualTo(expectedHeaderElements.get(i));
         }
+
         // 6 Assert that there are 4 images on the Index Page and they are displayed
-         List<WebElement> images = webDriver.findElements(By.className("benefit-icon"));
+        List<WebElement> images = webDriver.findElements(By.className("benefit-icon"));
 
         softAssertions.assertThat(images.size())
-                .as("Images number is incorrect")
+                .as("Images number is wrong")
                   .isEqualTo(4);
 
         for (WebElement image : images) {
-        softAssertions.assertThat(image.isDisplayed()).as("Images are not displayed");
+            softAssertions.assertThat(image.isDisplayed()).as("Images are not displayed");
         }
 
         // 7 Assert that there are 4 texts on the Index Page under icons and they have proper text
@@ -81,12 +82,12 @@ public class SiteTestJdiLightFirst extends MainTest {
                     + "wish to get more…");
 
         for (int i = 0; i < textsUnder.size(); i++) {
-        softAssertions.assertThat(textsUnder.get(i).getText())
+            softAssertions.assertThat(textsUnder.get(i).getText())
                 .as("Text is wrong")
                 .isEqualTo(expectedIndexTextsUnderIcons.get(i));
         }
 
-         //A 8 Assert that there is the iframe with “Frame Button” exist
+        //A 8 Assert that there is the iframe with “Frame Button” exist
         softAssertions.assertThat(webDriver.findElement(By.xpath("//iframe[@id='frame']")).isDisplayed())
             .as("Iframe with 'Frame Button' does not exist");
 
@@ -102,17 +103,18 @@ public class SiteTestJdiLightFirst extends MainTest {
         // 11 Assert that there are 5 items in the Left Section are displayed and they have proper text
         List<WebElement> leftSection = webDriver.findElements(By.xpath("//ul[contains(@class,'left')]/li/a"));
 
-           softAssertions.assertThat(leftSection.size())
+        softAssertions.assertThat(leftSection.size())
                 .as("Left Section elements count is wrong")
                   .isEqualTo(5);
 
-        List<String> expectedLeftSectionItems = Arrays.asList("Home", "Contact form", "Service", "Metals & Colors", "Elements packs");
+        List<String> expectedLeftSectionItems = Arrays
+                .asList("Home", "Contact form", "Service", "Metals & Colors", "Elements packs");
         for (WebElement item : leftSection) {
-        softAssertions.assertThat(item.isDisplayed())
+            softAssertions.assertThat(item.isDisplayed())
                 .as("Left Section elements are not displayed");
         }
         for (int i = 0; i < leftSection.size(); i++) {
-        softAssertions.assertThat(leftSection.get(i).getText())
+            softAssertions.assertThat(leftSection.get(i).getText())
                 .as("Text is wrong")
                 .isEqualTo(expectedLeftSectionItems.get(i));
         }

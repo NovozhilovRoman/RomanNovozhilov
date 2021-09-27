@@ -15,24 +15,24 @@
 
         <testng.configs.path>${project.build.testOutputDirectory}/testng</testng.configs.path>
         <testng.suite.file>${testng.configs.path}/lesson1.empty.suite.xml</testng.suite.file>
-
         <checkstyle.version>8.42</checkstyle.version>
         <lombok.version>1.18.20</lombok.version>
         <logback-classic.version>1.2.5</logback-classic.version>
         <testng.version>7.4.0</testng.version>
         <assertj-core.version>3.20.2</assertj-core.version>
-        <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
-
         <webdrivermanager.version>4.4.3</webdrivermanager.version>
         <selenium-java.version>3.141.5</selenium-java.version>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
+        <selenium-api.version>3.141.5</selenium-api.version>
+        <selenium-support.version>3.141.5</selenium-support.version>
     </properties>
-
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                                <version>${maven-checkstyle-plugin.version}</version>
+                <version>${maven-checkstyle-plugin.version}</version>
                 <dependencies>
                     <dependency>
                         <groupId>com.puppycrawl.tools</groupId>
@@ -42,7 +42,7 @@
                 </dependencies>
                 <configuration>
                     <configLocation>
-                        https://raw.githubusercontent.com/DmitryKhodakovsky/epam-training-center-code-checkers-configurations/main/checkstyle/checkstyle.xml
+                      https://raw.githubusercontent.com/DmitryKhodakovsky/epam-training-center-code-checkers-configurations/main/checkstyle/checkstyle.xml
                     </configLocation>
                     <encoding>${project.build.sourceEncoding}</encoding>
                     <includeTestSourceDirectory>true</includeTestSourceDirectory>
@@ -63,7 +63,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
+                <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <suiteXmlFiles>
                         <suiteXmlFile>${testng.suite.file}</suiteXmlFile>
@@ -72,7 +72,6 @@
             </plugin>
         </plugins>
     </build>
-
     <profiles>
         <profile>
             <id>Multiplication_And_Division</id>
@@ -83,7 +82,7 @@
         <profile>
             <id>Subtraction_And_Addition</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <testng.suite.file>${testng.configs.path}/defaultSecond.SubtractionAndAddition.xml</testng.suite.file>
@@ -101,10 +100,14 @@
                 <testng.suite.file>${testng.configs.path}/TestEx1Ex2.xml</testng.suite.file>
             </properties>
         </profile>
+        <profile>
+            <id>HW3</id>
+            <properties>
+                <testng.suite.file>${testng.configs.path}/HW3Ex1Ex2Test.xml</testng.suite.file>
+            </properties>
+        </profile>
     </profiles>
-
     <dependencies>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -142,10 +145,22 @@
         </dependency>
         <dependency>
             <groupId>calculator</groupId>
-            <artifactId>calculator</artifactId>
+            <artifactId>calculatorapp</artifactId>
             <scope>system</scope>
             <version>1.0</version>
             <systemPath>${project.basedir}/src/main/resources/calculator-1.0.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>${selenium-api.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-support</artifactId>
+            <version>${selenium-support.version}</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>
