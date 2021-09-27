@@ -9,14 +9,14 @@ import org.testng.annotations.Test;
 
 public class FailTestHomePage extends MainTest2 {
 
-    @Test (description = "Test home page")
-    @Description("Test home page")
-    @Story("Test home page")
-    @Feature("Test home page")
+    @Test (description = "Test fail")
+    @Description("Test fail")
+    @Story("Test fail")
+    @Feature("Test fail")
     public void testExerciseOne() {
 
         //Assert Browser title
-        homePageTestSteps.assertBrowserTitle("Home page");
+        homePageTestSteps.assertBrowserTitle("Control bug!");
 
         //Perform login
         homePageTestSteps.performLogin(username, password);

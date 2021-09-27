@@ -19,7 +19,7 @@ public class TestStepsHomePage {
         PageFactory.initElements(webDriver, this);
     }
 
-    @Step("assert briwser title")
+    @Step("assert browser title")
     public void assertBrowserTitle(String browserTitle) {
         softAssert.assertThat(homePage.getBrowserTitle())
                 .as("Browser title is incorrect")

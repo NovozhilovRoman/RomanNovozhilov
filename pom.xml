@@ -32,6 +32,7 @@
         <allure-testng.version>2.13.2</allure-testng.version>
 
         <aspectjweaver.version>1.9.7</aspectjweaver.version>
+        <allure-maven.reportVersion>2.13.2</allure-maven.reportVersion>
     </properties>
     <build>
         <plugins>
@@ -203,7 +204,7 @@
                 <artifactId>allure-maven</artifactId>
                 <version>${allure-maven.version}</version>
                 <configuration>
-                    <reportVersion>2.13.2</reportVersion>
+                    <reportVersion>${allure-maven.reportVersion}</reportVersion>
                 </configuration>
             </plugin>
         </plugins>
