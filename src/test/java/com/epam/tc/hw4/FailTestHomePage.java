@@ -1,4 +1,4 @@
-/*package com.epam.tc.hw4;
+package com.epam.tc.hw4;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -46,4 +46,4 @@ public class FailTestHomePage extends MainTest2 {
         //Assert that there are 5 items in the Left Section are displayed and they have proper text
         homePageTestSteps.assertFiveLeftSectionItemsHaveProperText();
     }
-}*/
+}
