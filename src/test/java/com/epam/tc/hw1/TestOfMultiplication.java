@@ -1,4 +1,4 @@
-package com.epam.tc.hw1;
+/*package com.epam.tc.hw1;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -10,5 +10,5 @@ public class TestOfMultiplication extends TestMain {
         long actualResult = calculator.mult(a, b);
         assertThat(actualResult).isEqualTo(expectedResult);
     }
-}
+}*/
 

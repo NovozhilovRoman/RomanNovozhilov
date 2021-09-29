@@ -11,6 +11,7 @@ public class FailTestHomePage extends MainTest2 {
 
     @Test (description = "Test fail")
     @Description("Test fail")
+    @Severity(SeverityLevel.TRIVIAL)
     @Story("Test fail")
     @Feature("Test fail")
     public void testExerciseOne() {
