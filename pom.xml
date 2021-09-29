@@ -183,7 +183,7 @@
              <version>${selenium-api.version}</version>
              <scope>compile</scope>
          </dependency>
-         <dependency>
+             <dependency>
              <groupId>org.seleniumhq.selenium</groupId>
              <artifactId>selenium-support</artifactId>
              <version>${selenium-support.version}</version>
