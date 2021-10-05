@@ -1,4 +1,4 @@
-/*package com.epam.tc.hw1;
+package com.epam.tc.hw1;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -10,4 +10,4 @@ public class TestOfSubtraction extends TestMain {
         long actualResult = calculator.sub(a, b);
         assertThat(actualResult).isEqualTo(expectedResult);
     }
-}*/
+}

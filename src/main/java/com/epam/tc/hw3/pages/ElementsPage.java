@@ -7,8 +7,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class ElementsPage extends BasePage {
 
-    protected WebDriver driver;
-
     public ElementsPage(WebDriver webDriver) {
         super(webDriver);
     }

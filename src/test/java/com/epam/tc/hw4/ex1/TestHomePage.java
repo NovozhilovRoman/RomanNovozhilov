@@ -1,7 +1,7 @@
 package com.epam.tc.hw4.ex1;
 
 
-import com.epam.tc.hw4.MainTest2;
+import com.epam.tc.hw4.MainTestForAllureProject;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
@@ -9,7 +9,7 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 
-public class TestHomePage extends MainTest2 {
+public class TestHomePage extends MainTestForAllureProject {
 
     @Test (description = "Test home page")
     @Description("Test home page")

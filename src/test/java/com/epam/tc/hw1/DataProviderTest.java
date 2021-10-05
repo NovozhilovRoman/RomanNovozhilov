@@ -1,4 +1,4 @@
-/*package com.epam.tc.hw1;
+package com.epam.tc.hw1;
 
 import org.testng.annotations.DataProvider;
 
@@ -38,4 +38,4 @@ public class DataProviderTest {
                 {1001, -3, 998},
         };
     }
-}*/
+}

@@ -1,4 +1,4 @@
-/*package com.epam.tc.hw1;
+package com.epam.tc.hw1;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -10,7 +10,7 @@ public class TestOfDivision extends TestMain {
         long actualResult = calculator.div(a, b);
         assertThat(actualResult).isEqualTo(expectedResult);
     }
-}*/
+}
 
 
 

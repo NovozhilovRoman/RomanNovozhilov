@@ -1,7 +1,7 @@
 package com.epam.tc.hw4.ex2;
 
 
-import com.epam.tc.hw4.MainTest2;
+import com.epam.tc.hw4.MainTestForAllureProject;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
@@ -10,7 +10,7 @@ import io.qameta.allure.Story;
 import java.util.List;
 import org.testng.annotations.Test;
 
-public class TestDifferentElements extends MainTest2 {
+public class TestDifferentElements extends MainTestForAllureProject {
 
     @Test (description = "Test different elements")
     @Description("Test different elements")

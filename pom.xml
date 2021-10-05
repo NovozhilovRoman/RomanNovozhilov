@@ -26,14 +26,13 @@
         <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
         <selenium-api.version>3.141.5</selenium-api.version>
         <selenium-support.version>3.141.5</selenium-support.version>
-
-
         <allure-maven.version>2.10.0</allure-maven.version>
         <allure-testng.version>2.13.2</allure-testng.version>
-
         <aspectjweaver.version>1.9.7</aspectjweaver.version>
         <allure-maven.reportVersion>2.13.2</allure-maven.reportVersion>
+        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
     </properties>
+
     <build>
         <plugins>
             <plugin>
@@ -64,6 +63,26 @@
                         <goals>
                             <goal>check</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>${maven-install-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                        <configuration>
+                            <groupId>com.calculator</groupId>
+                            <artifactId>calculator-app</artifactId>
+                            <version>1.0</version>
+                            <packaging>jar</packaging>
+                            <file>${basedir}/lib/calculator-1.0.jar</file>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -152,6 +171,7 @@
             <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
@@ -170,13 +190,13 @@
             <version>${webdrivermanager.version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- <dependency>
+        <dependency>
              <groupId>calculator</groupId>
              <artifactId>calculatorapp</artifactId>
              <scope>system</scope>
              <version>1.0</version>
              <systemPath>${project.basedir}/src/main/resources/calculator-1.0.jar</systemPath>
-         </dependency> -->
+         </dependency>
          <dependency>
              <groupId>org.seleniumhq.selenium</groupId>
              <artifactId>selenium-api</artifactId>

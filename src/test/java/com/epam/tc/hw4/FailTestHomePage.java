@@ -7,7 +7,7 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 
-public class FailTestHomePage extends MainTest2 {
+public class FailTestHomePage extends MainTestForAllureProject {
 
     @Test (description = "Test fail")
     @Description("Test fail")
