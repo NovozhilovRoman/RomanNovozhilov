@@ -1,10 +1,9 @@
-package com.epam.tc.hw4.pages;
+package com.epam.tc.hw5.pages;
 
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 
 
 public class ElementsPage extends BasePage {

@@ -31,6 +31,8 @@
         <aspectjweaver.version>1.9.7</aspectjweaver.version>
         <allure-maven.reportVersion>2.13.2</allure-maven.reportVersion>
         <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
+        <cucumber-testng.version>6.11.0</cucumber-testng.version>
+        <cucumber-java.version>6.11.0</cucumber-java.version>
     </properties>
 
     <build>
@@ -96,7 +98,7 @@
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver.version}/aspectjweaver-${aspectjweaver.version}.jar"
                     </argLine>
                     <suiteXmlFiles>
-                        <suiteXmlFile>${testng.configs.path}/HW4Ex1Ex2Test.xml</suiteXmlFile>
+                        <suiteXmlFile>${testng.configs.path}/HW5Cucumber.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
                 <dependencies>
@@ -147,9 +149,16 @@
         </profile>
         <profile>
             <id>HW4</id>
+            <activation><activeByDefault>false</activeByDefault></activation>
+            <properties>
+                <testng.suite.file>${testng.configs.path}/HW5Cucumber.xml</testng.suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>HW5</id>
             <activation><activeByDefault>true</activeByDefault></activation>
             <properties>
-                <testng.suite.file>${testng.configs.path}/HW4Ex1Ex2Test.xml</testng.suite.file>
+                <testng.suite.file>${testng.configs.path}/HW5Cucumber.xml</testng.suite.file>
             </properties>
         </profile>
     </profiles>
@@ -214,6 +223,17 @@
              <artifactId>allure-testng</artifactId>
              <version>${allure-testng.version}</version>
          </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber-testng.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber-java.version}</version>
+        </dependency>
      </dependencies>
 
      <reporting>
