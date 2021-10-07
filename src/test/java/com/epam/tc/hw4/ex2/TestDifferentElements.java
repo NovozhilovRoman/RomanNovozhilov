@@ -17,7 +17,7 @@ public class TestDifferentElements extends MainTestForAllureProject {
     @Severity(SeverityLevel.CRITICAL)
     @Story("Test different elements")
     @Feature("Test different elements")
-    public void testExerciseTwo() {
+    public void differentElementsTestExerciseTwo() {
         //Assert Browser title
         homePageTestSteps.assertBrowserTitle("Home Page");
 

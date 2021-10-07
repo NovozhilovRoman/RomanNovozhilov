@@ -16,7 +16,7 @@ public class TestHomePage extends MainTestForAllureProject {
     @Severity(SeverityLevel.BLOCKER)
     @Story("Test home page")
     @Feature("Test home page")
-        public void testExerciseOne() {
+        public void homePageTestExerciseOne() {
 
         //Assert Browser title
         homePageTestSteps.assertBrowserTitle("Home Page");
