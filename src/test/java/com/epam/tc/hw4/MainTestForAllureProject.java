@@ -1,4 +1,4 @@
-package com.epam.tc.hw3;
+package com.epam.tc.hw4;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.io.FileInputStream;
@@ -6,10 +6,11 @@ import java.io.IOException;
 import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-public abstract class MainTest {
+public abstract class MainTestForAllureProject {
     protected WebDriver webDriver;
     protected TestStepsHomePage homePageTestSteps;
     protected TestPageElementsSteps differentElementsPageTestSteps;
@@ -20,9 +21,10 @@ public abstract class MainTest {
     protected String expectedUsername;
 
     @BeforeMethod(alwaysRun = true)
-    public void prepare() {
+    public void prepare(ITestContext context) {
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
+        context.setAttribute("webDriver", webDriver);
         webDriver.manage().window().maximize();
         webDriver.get(siteURL);
         getUserData(userPropertiesFile);
