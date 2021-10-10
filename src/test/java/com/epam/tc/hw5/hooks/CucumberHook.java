@@ -15,13 +15,11 @@ public class CucumberHook {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-
-        TestContext.getInstance().addTestObject("webDriver", driver);
+        TestContext.getInstance().setDriver(driver);
     }
 
     @After
     public void tearDownDriver() {
         driver.quit();
-        TestContext.getInstance().clean();
     }
 }

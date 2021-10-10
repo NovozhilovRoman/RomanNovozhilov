@@ -1,33 +1,32 @@
 package com.epam.tc.hw5.pages;
 
-import com.epam.tc.hw5.pages.component.AbstractComponent;
+import com.epam.tc.hw5.pages.component.Components;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
-public class AbstractBasePage extends AbstractComponent {
-    private static final String BASE_URL = "https://jdi-testing.github.io/jdi-light/";
+public class AbstractBasePage extends Components {
+    protected Components loginForm;
+    protected Components headerMenu;
+    protected Components logsPanel;
+    protected HomePage homePage;
+    protected DifferentElementPage differentElementsPage;
+    protected UserTablePage userTablePage;
 
-    protected HeaderComponent header;
+    private static final String BASEURL = "https://jdi-testing.github.io/jdi-light/index.html";
 
     protected AbstractBasePage(WebDriver driver) {
         super(driver);
-        header = new HeaderComponent(driver);
+        PageFactory.initElements(driver, this);
+        loginForm = new Components(driver);
+        logsPanel = new Components(driver);
+        headerMenu = new Components(driver);
     }
 
-    public CatalogComponent openCatalog() {
-        return header.openCatalog();
+    public void openSite() {
+        driver.get(BASEURL);
     }
 
-    public void sendKeysToSearchInputField(String searchText) {
-        header.sendKeysToSearchInputField(searchText);
-    }
-
-    public void clickToSearchButton() {
-        header.clickToSearchButton();
-    }
-
-    protected void open(String url) {
-        driver.navigate().to(BASE_URL + url);
-    }
-}
+    public String getBrowserTitle() {
+        return driver.getTitle();
     }
 }

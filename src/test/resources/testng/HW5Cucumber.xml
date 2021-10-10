@@ -2,8 +2,7 @@
 <suite name = "HW5CucumberSuite">
     <test name = "HW5CucumberTest">
         <classes>
-            <class name="com.epam.tc.hw5.ex1.TestHomePage"/>
-            <class name="com.epam.tc.hw5.ex2.TestDifferentElements"/>
+            <class name="com.epam.tc.hw5.RunAcceptanceTest"/>
         </classes>
     </test>
 </suite>

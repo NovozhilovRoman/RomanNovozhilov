@@ -5,12 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-
-public class ElementsPage extends BasePage {
-
-    public ElementsPage(WebDriver webDriver) {
-        super(webDriver);
-    }
+public class DifferentElementPage extends AbstractBasePage {
 
     @FindBy(xpath = "//label[text()[contains(.,'Water')]]/input")
     private WebElement waterCheckbox;
@@ -24,11 +19,9 @@ public class ElementsPage extends BasePage {
     @FindBy(xpath = "//select[@class='uui-form-element']/option[text()='Yellow']")
     private WebElement yellowColorDropdownItem;
 
-    @FindBy(xpath = "//ul[@class='panel-body-list logs']")
-    private WebElement logsPanel;
-
-    @FindBy(xpath = "//li[text()[contains(.,'%s: %s changed to %s')]]")
-    private List<WebElement> logRows;
+    public DifferentElementPage(WebDriver driver) {
+        super(driver);
+    }
 
     public void clickWaterCheckbox() {
         waterCheckbox.click();
@@ -46,7 +39,23 @@ public class ElementsPage extends BasePage {
         yellowColorDropdownItem.click();
     }
 
-    public List<WebElement> getLogRows() {
-        return logRows;
+    public boolean waterCheckBoxIsSelected() {
+        return waterCheckbox.isSelected();
+    }
+
+    public boolean windCheckBoxIsSelected() {
+        return windCheckbox.isSelected();
+    }
+
+    public boolean selenRadioIsSelected() {
+        return selenRadioButton.isSelected();
+    }
+
+    public boolean yellowInDropdownIsSelected() {
+        return yellowColorDropdownItem.isSelected();
+    }
+
+    public List<WebElement> getLogRowText() {
+        return logsPanel.getLogRows();
     }
 }
