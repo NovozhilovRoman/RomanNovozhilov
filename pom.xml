@@ -9,8 +9,8 @@
     <version>2021.07.29-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <testng.configs.path>${project.build.testOutputDirectory}/testng</testng.configs.path>
@@ -30,7 +30,9 @@
         <allure-testng.version>2.13.2</allure-testng.version>
         <aspectjweaver.version>1.9.7</aspectjweaver.version>
         <allure-maven.reportVersion>2.13.2</allure-maven.reportVersion>
-        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
+        <!--<maven-install-plugin.version>2.5.2</maven-install-plugin.version>-->
+        <cucumber-testng.version>6.11.0</cucumber-testng.version>
+        <cucumber-java.version>6.11.0</cucumber-java.version>
     </properties>
 
     <build>
@@ -66,7 +68,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-install-plugin</artifactId>
                 <version>${maven-install-plugin.version}</version>
@@ -85,7 +87,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -96,7 +98,7 @@
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver.version}/aspectjweaver-${aspectjweaver.version}.jar"
                     </argLine>
                     <suiteXmlFiles>
-                        <suiteXmlFile>${testng.configs.path}/HW4Ex1Ex2Test.xml</suiteXmlFile>
+                        <suiteXmlFile>${testng.configs.path}/HW5Cucumber.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
                 <dependencies>
@@ -106,6 +108,15 @@
                         <version>${aspectjweaver.version}</version>
                     </dependency>
                 </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>9</source>
+                    <target>9</target>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -147,9 +158,16 @@
         </profile>
         <profile>
             <id>HW4</id>
-            <activation><activeByDefault>true</activeByDefault></activation>
+            <activation><activeByDefault>false</activeByDefault></activation>
             <properties>
                 <testng.suite.file>${testng.configs.path}/HW4Ex1Ex2Test.xml</testng.suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>HW5</id>
+            <activation><activeByDefault>true</activeByDefault></activation>
+            <properties>
+                <testng.suite.file>${testng.configs.path}/HW5Cucumber.xml</testng.suite.file>
             </properties>
         </profile>
     </profiles>
@@ -200,13 +218,13 @@
          <dependency>
              <groupId>org.seleniumhq.selenium</groupId>
              <artifactId>selenium-api</artifactId>
-             <version>${selenium-api.version}</version>
+             <version>3.141.5</version>
              <scope>compile</scope>
          </dependency>
              <dependency>
              <groupId>org.seleniumhq.selenium</groupId>
              <artifactId>selenium-support</artifactId>
-             <version>${selenium-support.version}</version>
+             <version>3.141.5</version>
              <scope>compile</scope>
          </dependency>
          <dependency>
@@ -214,6 +232,17 @@
              <artifactId>allure-testng</artifactId>
              <version>${allure-testng.version}</version>
          </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>6.11.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>6.11.0</version>
+        </dependency>
      </dependencies>
 
      <reporting>
