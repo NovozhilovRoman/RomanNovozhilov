@@ -2,7 +2,7 @@ package com.epam.tc.hw5.steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import lombok.var;
+//import lombok.var;
 
 public class GivenStep extends AbstractStep {
 
