@@ -5,6 +5,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Locale;
 import javax.management.openmbean.InvalidOpenTypeException;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
@@ -14,7 +16,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class WebDriverFactory {
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public final class WebDriverFactory {
 
     private static final String CHROME = "chrome";
     private static final String FIREFOX = "firefox";
@@ -34,19 +37,19 @@ public class WebDriverFactory {
 
     /* Local Web Driver creation */
     private static WebDriver createLocalDriver(final String browserName) {
-        WebDriver driver;
+        WebDriver webDriver;
         switch (browserName.toLowerCase(Locale.ROOT)) {
             case CHROME:
-                driver = createChromeDriver();
+                webDriver = createChromeDriver();
                 break;
             case FIREFOX:
-                driver = createFirefoxDriver();
+                webDriver = createFirefoxDriver();
                 break;
             default:
                 throw new IllegalArgumentException(String.format("Unsupported browser: %s", browserName));
         }
 
-        return driver;
+        return webDriver;
     }
 
     private static WebDriver createFirefoxDriver() {

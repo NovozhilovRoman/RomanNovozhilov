@@ -1,25 +1,27 @@
 package com.epam.tc.hw6.driver;
 
 import java.util.Objects;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import org.openqa.selenium.WebDriver;
 
 
-
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class WebDriverSingleton {
-    private static WebDriver driver;
+    private static WebDriver webDriver;
 
     public static WebDriver getDriver() {
         var driverType = System.getProperty("driver.type", "local");
         var browserName = System.getProperty("browser.name", "chrome");
-        if (Objects.isNull(driver)) {
-            driver = WebDriverFactory.createWebDriver(driverType, browserName);
+        if (Objects.isNull(webDriver)) {
+            webDriver = WebDriverFactory.createWebDriver(driverType, browserName);
         }
-        return driver;
+        return webDriver;
     }
 
     public static void closeDriver() {
-        driver.quit();
-        driver = null;
+        webDriver.quit();
+        webDriver = null;
     }
 }
 
