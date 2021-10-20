@@ -1,7 +1,7 @@
 package com.epam.tc.hw6;
 
 
-import com.epam.tc.hw4.pages.ElementsPage;
+import com.epam.tc.hw6.pages.ElementsPage;
 import io.qameta.allure.Step;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
@@ -22,22 +22,22 @@ public class TestPageElementsSteps {
 
     @Step("Select checkbox water")
     public void selectWaterCheckbox() {
-        elementsPage.clickWaterCheckbox();
+        elementsPage.clickWater();
     }
 
     @Step ("Select checkbox wind")
     public void selectWindCheckbox() {
-        elementsPage.clickWindCheckbox();
+        elementsPage.clickWind();
     }
 
     @Step ("Select selenradio button")
     public void selectSelenRadioButton() {
-        elementsPage.clickSelenRadioButton();
+        elementsPage.clickSelenRadio();
     }
 
     @Step ("Select yellow color in dropdown")
     public void selectYellowColorInDropdown() {
-        elementsPage.clickYellowColorDropdownItem();
+        elementsPage.clickYellowColorDropdown();
     }
 
     @Step ("assert that log rows are displayed ")

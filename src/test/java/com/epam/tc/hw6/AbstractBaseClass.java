@@ -19,14 +19,14 @@ public class AbstractBaseClass {
 
     @BeforeMethod(alwaysRun = true)
     public void setUp(ITestContext context) {
-        var driver = WebDriverSingleton.getDriver();
+        var webDriver = WebDriverSingleton.getDriver();
 
-        driver.manage().window().maximize();
-        driver.get(siteURL);
+        webDriver.manage().window().maximize();
+        webDriver.get(siteURL);
         getUserData(userPropertiesFile);
-        testHomePageSteps = new TestHomePageSteps(driver);
-        testPageElementsSteps = new TestPageElementsSteps(driver);
-        context.setAttribute("driver", driver);
+        testHomePageSteps = new TestHomePageSteps(webDriver);
+        testPageElementsSteps = new TestPageElementsSteps(webDriver);
+        context.setAttribute("webDriver", webDriver);
     }
 
 

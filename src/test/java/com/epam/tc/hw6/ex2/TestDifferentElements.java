@@ -1,6 +1,6 @@
 package com.epam.tc.hw6.ex2;
 
-import com.epam.tc.hw4.MainTestForAllureProject;
+import com.epam.tc.hw6.AbstractBaseClass;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
@@ -10,7 +10,7 @@ import jdk.jfr.Description;
 import org.testng.annotations.Test;
 
 
-public class TestDifferentElements extends MainTestForAllureProject {
+public class TestDifferentElements extends AbstractBaseClass {
 
     @Test (description = "Test different elements")
     @Description("Test different elements")
@@ -19,27 +19,27 @@ public class TestDifferentElements extends MainTestForAllureProject {
     @Feature("Test different elements")
     public void testExerciseTwo() {
         //Assert Browser title
-        homePageTestSteps.assertBrowserTitle("Home Page");
+        testHomePageSteps.assertBrowserTitle("Home Page");
 
         //Perform login
-        homePageTestSteps.performLogin(username, password);
+        testHomePageSteps.performLogin(username, password);
 
-        //Assert User name in the left-top side of screen that user is loggined
-        homePageTestSteps.assertUsernameLoggined(expectedUsername);
+        //Assert User name in the left-top side of screen that user is logined
+        testHomePageSteps.assertUsernameLoggined(expectedUsername);
 
-        //Open through the header menu Service -> Different Elements Page
-        homePageTestSteps.clickServiceMenuItem();
-        homePageTestSteps.clickDifferentElementsItem();
+        //Open through the header menu Service - Different Elements Page
+        testHomePageSteps.clickServiceMenuItem();
+        testHomePageSteps.clickDifferentElementsItem();
 
         //Select checkboxes (Water, Wind)
-        differentElementsPageTestSteps.selectWaterCheckbox();
-        differentElementsPageTestSteps.selectWindCheckbox();
+        testPageElementsSteps.selectWaterCheckbox();
+        testPageElementsSteps.selectWindCheckbox();
 
         //Select radio (Selen)
-        differentElementsPageTestSteps.selectSelenRadioButton();
+        testPageElementsSteps.selectSelenRadioButton();
 
         //Select in dropdown (Yellow)
-        differentElementsPageTestSteps.selectYellowColorInDropdown();
+        testPageElementsSteps.selectYellowColorInDropdown();
 
         /*
          Assert that
@@ -48,7 +48,7 @@ public class TestDifferentElements extends MainTestForAllureProject {
          for dropdown there is a log row and value is corresponded to the selected value.
          */
 
-        differentElementsPageTestSteps.assertThatLogRowsAreDisplayed(List.of(
+        testPageElementsSteps.assertThatLogRowsAreDisplayed(List.of(
                 "value changed to Yellow",
                 "value changed to Selen",
                 "condition changed to true",
