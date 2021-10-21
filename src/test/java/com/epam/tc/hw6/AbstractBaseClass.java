@@ -17,7 +17,7 @@ public class AbstractBaseClass {
     protected String password;
     protected String expectedUsername;
 
-    @BeforeMethod(alwaysRun = true)
+    @BeforeMethod
     public void setUp(ITestContext context) {
         var webDriver = WebDriverSingleton.getDriver();
 
@@ -42,7 +42,7 @@ public class AbstractBaseClass {
         expectedUsername = userProperties.getProperty("ExpectedUserName");
     }
 
-    @AfterMethod(alwaysRun = true)
+    @AfterMethod
     public void tearDownDriver() {
         WebDriverSingleton.closeDriver();
     }

@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import org.openqa.selenium.WebDriver;
 
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+//@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class WebDriverSingleton {
     private static WebDriver webDriver;
 
