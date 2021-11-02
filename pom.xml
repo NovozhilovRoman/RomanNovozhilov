@@ -11,6 +11,7 @@
     <properties>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <domain>https://jdi-testing.github.io/jdi-light/</domain>
 
         <testng.configs.path>${project.build.testOutputDirectory}/testng</testng.configs.path>
         <testng.suite.file>${testng.configs.path}/lesson1.empty.suite.xml</testng.suite.file>
@@ -97,7 +98,7 @@
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver.version}/aspectjweaver-${aspectjweaver.version}.jar"
                     </argLine>
                     <suiteXmlFiles>
-                        <suiteXmlFile>${testng.configs.path}/SeleniumHW6.xml</suiteXmlFile>
+                        <suiteXmlFile>${testng.configs.path}/HW7JDI.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
                 <dependencies>
@@ -171,9 +172,17 @@
         </profile>
         <profile>
             <id>HW6</id>
-            <activation><activeByDefault>true</activeByDefault></activation>
+            <activation><activeByDefault>false</activeByDefault></activation>
             <properties>
                 <testng.suite.file>${testng.configs.path}/SeleniumHW6.xml</testng.suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>HW7</id>
+            <activation><activeByDefault>true</activeByDefault></activation>
+            <properties>
+                <testng.suite.file>${testng.configs.path}/HW7JDI.xml</testng.suite.file>
             </properties>
         </profile>
     </profiles>
@@ -269,6 +278,18 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-firefox-driver</artifactId>
             <version>3.141.59</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.epam.jdi</groupId>
+            <artifactId>jdi-light-html</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.4.0</version>
             <scope>compile</scope>
         </dependency>
 
